@@ -19,20 +19,22 @@ def webhook():
         binanceApiKey = data['binanceApiKey']
         binanceSecretKey = data['binanceSecretKey']
 
+        
         params = {
+            "symbol": ticker,
+            "side": side,
+            "type": "MARKET",
+            "quantity": quantity,
+        }
+        
+        params2 = {
             "asset": ticker,
             "amount": quantity,
         }
 
-        params2 = {
-            "symbol": ticker,
-            "side": "BUY",
-            "type": "MARKET",
-            "quantity": quantity,
-        }
 
-        Client(binanceApiKey, binanceSecretKey).margin_borrow(**params)
-        Client(binanceApiKey, binanceSecretKey).new_margin_order(**params2)
+        Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
+        Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
 
 
 
