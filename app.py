@@ -32,9 +32,8 @@ def webhook():
             "amount": quantity,
         }
 
-
-        Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
         Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
+        Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
 
 
 
