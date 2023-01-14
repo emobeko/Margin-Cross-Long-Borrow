@@ -25,6 +25,7 @@ def webhook():
             "side": side,
             "type": "MARKET",
             "quantity": quantity,
+            "sideEffectType": "AUTO_REPAY",
         }
         
         params2 = {
