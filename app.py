@@ -18,8 +18,6 @@ def webhook():
         quantity = data['quantity']
         binanceApiKey = data['binanceApiKey']
         binanceSecretKey = data['binanceSecretKey']
-        asset = data['ticker']
-        amount = data['quantity']
 
         
         params = {
@@ -30,7 +28,7 @@ def webhook():
         }
         
         params2 = {
-            "asset": ticker,
+            "asset": "BTC",
             "amount": quantity,
         }
 
