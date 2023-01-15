@@ -32,9 +32,14 @@ def webhook():
             "amount": quantity,
         }
 
+        params3 = {
+            "asset": "BTC",
+            "amount": quantity,
+        }
+        
         Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
         Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
-        Client(binanceApiKey, binanceSecretKey).margin_repay(**params2)
+        Client(binanceApiKey, binanceSecretKey).margin_repay(**params3)
 
 
 
