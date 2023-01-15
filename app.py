@@ -30,7 +30,7 @@ def webhook():
         }
         
         params2 = {
-            "asset": "BTC",
+            "asset": "BUSD",
             "amount": quantity,
             "isIsolated": "TRUE",
             "symbol": "BTCBUSD",
@@ -38,7 +38,6 @@ def webhook():
         
         Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
         Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
-        Client(binanceApiKey, binanceSecretKey).margin_repay(**params2)
 
 
 
