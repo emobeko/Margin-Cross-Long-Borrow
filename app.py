@@ -25,21 +25,20 @@ def webhook():
             "side": side,
             "type": "MARKET",
             "quantity": quantity,
+            "isIsolated": "TRUE",
+            "symbol": "BTCBUSD",
         }
         
         params2 = {
             "asset": "BTC",
             "amount": quantity,
-        }
-
-        params3 = {
-            "asset": "BTC",
-            "amount": quantity,
+            "isIsolated": "TRUE",
+            "symbol": "BTCBUSD",
         }
         
         Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
         Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
-        Client(binanceApiKey, binanceSecretKey).margin_repay(**params3)
+        Client(binanceApiKey, binanceSecretKey).margin_repay(**params2)
 
 
 
