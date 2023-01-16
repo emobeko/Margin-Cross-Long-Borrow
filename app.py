@@ -19,19 +19,28 @@ def webhook():
         binanceApiKey = data['binanceApiKey']
         binanceSecretKey = data['binanceSecretKey']
 
-        
+
         params = {
             "symbol": ticker,
             "side": side,
             "type": "MARKET",
             "quantity": quantity,
             "isIsolated": "TRUE",
-            "sideEffectType": "MARGIN_BUY",
         }
-        
-        Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
 
+        params2 = {
+            "asset": "BUSD",
+            "amount": quantity,
+            "isIsolated": "TRUE",
+            "symbol": ticker,
+        }
 
+        if side == "BUY":
+            Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
+            Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
+        if side == "SELL":
+            Client(binanceApiKey, binanceSecretKey).margin_repay(**params2)
+            Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
 
     except:
         pass
