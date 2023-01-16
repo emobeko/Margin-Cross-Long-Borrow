@@ -26,6 +26,7 @@ def webhook():
             "type": "MARKET",
             "quantity": quantity,
             "isIsolated": "TRUE",
+            "sideEffectType": "MARGIN_BUY",
         }
         
         Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
