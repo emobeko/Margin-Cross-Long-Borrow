@@ -26,17 +26,8 @@ def webhook():
             "type": "MARKET",
             "quantity": quantity,
             "isIsolated": "TRUE",
-            "symbol": "BTCBUSD",
         }
         
-        params2 = {
-            "asset": "BUSD",
-            "amount": quantity,
-            "isIsolated": "TRUE",
-            "symbol": "BTCBUSD",
-        }
-        
-        Client(binanceApiKey, binanceSecretKey).margin_borrow(**params2)
         Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
 
 
