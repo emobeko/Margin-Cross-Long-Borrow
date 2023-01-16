@@ -22,7 +22,7 @@ def webhook():
         
         params = {
             "symbol": ticker,
-            "side": "BUY",
+            "side": side,
             "type": "MARKET",
             "quantity": quantity,
             "isIsolated": "TRUE",
