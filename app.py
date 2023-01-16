@@ -22,11 +22,11 @@ def webhook():
 
         params = {
             "symbol": ticker,
-            "side": side,
+            "side": "SELL",
             "type": "MARKET",
             "quantity": quantity,
             "isIsolated": "TRUE",
-            "sideEffectType": "AUTO_REPAY",
+            "sideEffectType": "MARGIN_BUY",
         }
         
         Client(binanceApiKey, binanceSecretKey).new_margin_order(**params)
